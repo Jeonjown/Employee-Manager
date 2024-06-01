@@ -4,11 +4,27 @@
   <body>
     <%- include('../partials/nav') %>
     <h2>Add Employees</h2>
-    <form action="employees/create" method="POST">
+    <form action="/employees/create" method="POST">
+      <!-- name -->
       <input type="text" name="name" placeholder="Name" required />
+      <!-- email -->
+      <input type="email" name="email" placeholder="Email" required />
+      <!-- position -->
       <input type="text" name="position" placeholder="Position" required />
+      <!-- department -->
       <input type="text" name="department" placeholder="Department" required />
-      <input type="number" name="contact" placeholder="Contact" required />
+      <!-- contact -->
+      <input type="tel" name="contact" placeholder="Contact" required />
+
+      <!-- image -->
+      <!-- <label for="image">Submit Profile Pic:</label>
+      <input
+        type="file"
+        name="image"
+        accept="image/*"
+        placeholder="submit profile image"
+      /> -->
+      <!-- submit -->
       <button type="submit">Add Employee</button>
     </form>
   </body>

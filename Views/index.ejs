@@ -3,6 +3,21 @@
   <%- include('./partials/head') %>
   <body>
     <%- include('./partials/nav') %>
-    <div class="employee-container"></div>
+    <div class="employee-container">
+        <% employees.forEach(employee => { %>
+          <div class="employee">
+            <p><%= employee.name %></p>
+            <p> Employee Id: <%= employee.id %></p>
+            <p><%= employee.position %></p>
+            <p><%= employee.email %></p>
+            <p><%= employee.contact %></p>
+            <p> Join Date: <%= employee.createdAt %></p>
+          
+            
+          </div>
+      
+        <% }); %>
+      </div>
+    </div>
   </body>
 </html>

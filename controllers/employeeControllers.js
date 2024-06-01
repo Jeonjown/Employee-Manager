@@ -3,7 +3,7 @@ const Employee = require('../models/employeeModel');
 const employee_index = (req, res) => {
     Employee.find()
         .then(result => {
-            res.render("index", { employee: result });
+            res.render("index", { employees: result });
             console.log(result);
         })
         .catch(err => console.log(err));
@@ -12,6 +12,7 @@ const employee_index = (req, res) => {
 const render_create_employee = (req, res) => {
     res.render("./employees/add-employee");
 };
+
 
 const create_employee = (req, res) => {
     const employee = new Employee(req.body);
@@ -22,7 +23,7 @@ const create_employee = (req, res) => {
         })
         .catch((err) => {
             console.log(err);
-            res.status(500).send('eror creating employee');
+            res.status(500).send('error creating employee');
         });
 };
 

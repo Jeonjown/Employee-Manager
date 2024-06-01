@@ -2,8 +2,11 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 const express = require('express');
+const bodyParser = require('body-parser');
 const employeeRouter = require('./routes/employeeRoutes');
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // connect to database
 const dbURI = process.env.DB_URI;
@@ -22,15 +25,5 @@ app.listen(3000, () => {
 
 // add static file
 app.use(express.static('public'));
-
-// index
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
-app.get('/create', (req, res) => {
-    res.render('employees/add-employee');
-});
-
 
 app.use('/employees', employeeRouter);

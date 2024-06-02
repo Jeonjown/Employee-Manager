@@ -27,6 +27,15 @@ const create_employee = (req, res) => {
         });
 };
 
+const render_details_employee = (req, res) => {
+    const id = req.params.id;
+    Employee.findById(id)
+        .then(result => {
+            res.render('./employees/employee-details', { employee: result });
+
+        });
+};
+
 module.exports = {
-    employee_index, render_create_employee, create_employee
+    employee_index, render_create_employee, create_employee, render_details_employee
 };

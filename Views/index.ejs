@@ -4,27 +4,31 @@
   <body>
     <%- include('./partials/nav') %>
     <div class="employee-container">
-        <% employees.forEach(employee => { %>
-          <div class="employee">
-            <div class="profile-pic"><i class="fa-solid fa-user"></i></div>
-            <h2 class="employee-name"><%= employee.name %></h2>
-            <p class="employee-position"><%= employee.position %></p>
-            <div class="employee-id"> 
-              <h4> Employee ID:</h4>
-             <p> <%= employee.id %></p>
-            </div>
-            <div class="employee-contact">
-              <h4>Employee Contact</h4>
-              <p><%= employee.contact %></p>
-            </div>
-                <!-- <p>Email: <%= employee.email %></p> -->
-            <!-- <p> Join Date: <%= employee.createdAt %></p> -->
-          
-            
+      <% employees.forEach(employee => { %>
+      <a href="/employees/<%= employee.id %>">
+        <div class="employee">
+          <div class="profile-pic"><i class="fa-solid fa-user"></i></div>
+          <h2 class="employee-name"><%= employee.name %></h2>
+          <p class="employee-position"><%= employee.position %></p>
+          <div class="employee-id">
+            <h4>Employee ID</h4>
+            <p><%= employee.id %></p>
           </div>
-      
-        <% }); %>
-      </div>
+          <div class="employee-contact">
+            <h4>Employee Contact</h4>
+            <p><%= employee.contact %></p>
+          </div>
+          <!-- <p>Email: <%= employee.email %></p> -->
+          <!-- <p> Join Date: <%= employee.createdAt %></p> -->
+        </div>
+      </a>
+      <% }); %>
     </div>
   </body>
 </html>
+
+<!-- 
+  - surround elements using anchor
+  - append the id on the href
+  - handle user id route
+-->

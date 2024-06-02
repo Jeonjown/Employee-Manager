@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+
+  <body>
+    <%- include('../partials/nav') %>
+    <div class="employee-details-container">
+      <div class="employee-details">
+        <div class="profile-pic"><i class="fa-solid fa-user"></i></div>
+        <h2 class="employee-name"><%= employee.name %></h2>
+        <p class="employee-position"><%= employee.position %></p>
+        <div class="employee-id">
+          <h4>Employee ID</h4>
+          <p><%= employee.id %></p>
+        </div>
+        <div class="employee-contact">
+          <h4>Employee Contact</h4>
+          <p><%= employee.contact %></p>
+        </div>
+      </div>
+      <div class="employee-additional-details">
+        <div class="employee-details-email">
+          <h4>Employee Email</h4>
+          <p><%= employee.email %></p>
+        </div>
+
+        <div class="employee-join-date">
+          <h4>Join Date</h4>
+          <p>Join Date: <%= employee.createdAt %></p>
+        </div>
+
+        <div class="employee-operations">
+          <a href="#">edit</a>
+          <a href="#">delete</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

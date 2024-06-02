@@ -5,7 +5,12 @@ const employeeControllers = require('../controllers/employeeControllers');
 router.get('/', employeeControllers.employee_index);
 router.get('/create', employeeControllers.render_create_employee);
 router.post('/create', employeeControllers.create_employee);
+
 // edit
-// delete 
+// delete
+router.get('/:id', employeeControllers.render_details_employee);
+
+
+
 
 module.exports = router;

@@ -31,9 +31,29 @@
 
         <div class="employee-operations">
           <a href="#">edit</a>
-          <a href="#">delete</a>
+          <a class="delete" data-delete="<%= employee.id %>">delete</a>
         </div>
       </div>
     </div>
+
+    <script>
+      const deleteBtn = document.querySelector("a.delete");
+      deleteBtn.addEventListener("click", (e) => {
+        const endpoint = `/employees/${deleteBtn.dataset.delete}`;
+
+        fetch(endpoint, {
+          method: "DELETE",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.redirect) {
+              window.location.href = data.redirect;
+            } else {
+              console.log(data); // Handle other responses if necessary
+            }
+          })
+          .catch((err) => console.log(err));
+      });
+    </script>
   </body>
 </html>

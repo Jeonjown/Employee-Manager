@@ -5,10 +5,8 @@ const employeeControllers = require('../controllers/employeeControllers');
 router.get('/', employeeControllers.employee_index);
 router.get('/create', employeeControllers.render_create_employee);
 router.post('/create', employeeControllers.create_employee);
-
-// edit
-// delete
 router.get('/:id', employeeControllers.render_details_employee);
+router.delete('/:id', employeeControllers.delete_employee);
 
 
 

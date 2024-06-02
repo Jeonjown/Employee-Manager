@@ -217,6 +217,11 @@ nav a:hover {
   margin-right: 1em;
 }
 
+.employee-operations a:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 .employee-details-email {
   margin-top: 2sem;
   margin-right: auto;

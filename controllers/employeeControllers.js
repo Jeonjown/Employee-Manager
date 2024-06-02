@@ -30,7 +30,7 @@ const render_details_employee = (req, res) => {
     const id = req.params.id;
     Employee.findById(id)
         .then(result => { res.render('./employees/employee-details', { employee: result }); })
-        .catch(err => clg(err));
+        .catch(err => console.log(err));
 };
 
 const delete_employee = (req, res) => {
@@ -52,6 +52,34 @@ const delete_employee = (req, res) => {
         });
 };
 
+const render_edit_employee = (req, res) => {
+    const id = req.params.id;
+    Employee.findById(id)
+        .then((result) => {
+            console.log(result);
+            res.render('./employees/edit-employee', { employee: result });
+        });
+};
+
+const edit_employee = (req, res) => {
+    const id = req.params.id;
+    Employee.findByIdAndUpdate(id, req.body)
+        .then((updatedEmployee) => {
+            if (!updatedEmployee) {
+                res.status(404).send('Employee not found');
+                return;
+            }
+            res.redirect('/employees/' + id);
+        })
+        .catch(err => console.log(err));
+};
+
 module.exports = {
-    employee_index, render_create_employee, create_employee, render_details_employee, delete_employee
+    employee_index,
+    render_create_employee,
+    create_employee,
+    render_details_employee,
+    delete_employee,
+    render_edit_employee,
+    edit_employee
 };

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/nav') %>
+    <h1>Edit Employee</h1>
+    <form
+      class="edit-employee-form"
+      action="/employees/edit/<%= employee.id %>"
+      method="POST"
+    >
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="<%= employee.name %>" />
+      <label for="position">Position:</label>
+      <input
+        type="text"
+        id="position"
+        name="position"
+        value="<%= employee.position %>"
+      />
+      <label for="department">Department:</label>
+      <input
+        type="text"
+        id="department"
+        name="department"
+        value="<%= employee.department %>"
+      />
+      <label for="contact">Contact:</label>
+      <input
+        type="text"
+        id="contact"
+        name="contact"
+        value="<%= employee.contact %>"
+      />
+      <label for="email">Email:</label>
+      <input
+        type="text"
+        id="email"
+        name="email"
+        value="<%= employee.email %>"
+      />
+      <button type="submit">Save Changes</button>
+    </form>
+  </body>
+</html>

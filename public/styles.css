@@ -206,7 +206,7 @@ nav a:hover {
   margin-top: auto;
   margin-bottom: 2em;
 }
-
+/* employed */
 .employee-operations a {
   color: inherit; /* Inherits color from parent element */
   text-decoration: none; /* Removes underline */
